@@ -1,7 +1,12 @@
 #!/usr/bin/env bash
 
-docker rm $(docker ps -a -q)
-sudo rm -rf  nginx grafana_data plugins influxdb
+ids=$(docker ps -a -q)
+for id in $ids
+do
+  echo "$id"
+  docker stop $id && docker rm $id
+done
+
 while true; do
     read -p "Do you wish to delete docker images as well (y/n)? " yn
     case $yn in
@@ -10,3 +15,5 @@ while true; do
         * ) echo "Please answer yes or no.";;
     esac
 done
+
+sudo rm -rf  nginx grafana_data plugins influxdb
