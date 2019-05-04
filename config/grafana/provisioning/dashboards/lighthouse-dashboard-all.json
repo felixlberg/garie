@@ -65,7 +65,7 @@
 			"title": "Lighthouse Reports",
 			"tooltip": "",
 			"type": "link",
-			"url": ":3000./reports"
+			"url": "http://localhost:3000/reports"
 		}
 	],
 	"panels": [
