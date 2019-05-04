@@ -70,8 +70,9 @@ services:
     container_name: chronograf
     entrypoint: "chronograf --influxdb-url=http://influxdb:8086"
     environment:
+      - BOLT_PATH=/chronograf-v1.db
       - BASE_PATH=/chronograf
-    ports:
+    expose:
       - 8888
     depends_on:
       - influxdb
